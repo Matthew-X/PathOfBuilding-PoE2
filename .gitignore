@@ -13,6 +13,10 @@ Builds/
 *.cfg
 Settings.xml
 
+# Native Linux runtime, built from PathOfBuilding-SimpleGraphic
+runtime/*.so
+runtime/PathOfBuilding-PoE2
+
 # Testing
 luajit/
 spec/test_results.log

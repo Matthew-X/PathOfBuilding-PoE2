@@ -68,7 +68,7 @@ The easiest way to make and test changes is by setting up a development installa
 
 3. Start Path of Building from the repository.
        * On Windows, run `./runtime/Path{space}of{space}Building-PoE2.exe`
-       * On Linux, run `wine ./runtime/Path{space}of{space}Building-PoE2.exe`
+       * On Linux, run `wine ./runtime/Path{space}of{space}Building-PoE2.exe`, or build the native Linux runtime (see [Native Linux runtime](#native-linux-runtime))
        * <ins>Note for Linux users:</ins> `chmod +x` only fixes the execute bit. The file is still a Windows executable, so Wine is required to run it.
 
 You can now use the shortcut to run the program from the repository. Running the program in this manner automatically enables "Dev Mode", which has some handy debugging feature:
@@ -84,6 +84,17 @@ You can now use the shortcut to run the program from the repository. Running the
 * Holding `Ctrl` while launching the program will rebuild the mod cache.
 
 Note that automatic updates are disabled in Dev Mode.
+
+### Native Linux runtime
+
+Instead of Wine, a development installation can run on a native Linux build of the runtime. It is built from [PathOfBuilding-SimpleGraphic](https://github.com/PathOfBuildingCommunity/PathOfBuilding-SimpleGraphic) (see "Building on Linux" in its CONTRIBUTING.md) and installed into this repository's `runtime` folder, next to the Windows files:
+
+    git clone --recursive https://github.com/PathOfBuildingCommunity/PathOfBuilding-SimpleGraphic
+    PathOfBuilding-SimpleGraphic/linux/build.sh --install "$PWD/PathOfBuilding-PoE2/runtime" --name PathOfBuilding-PoE2 --display-name "Path of Building (PoE2)"
+
+Then run `./runtime/PathOfBuilding-PoE2`, or start "Path of Building (PoE2)" from the application menu. The build also adds a desktop entry with the icon from `runtime/PathOfBuilding-PoE2.png`, so the window shows the right name and icon. The Linux files in `runtime` are ignored by git and left out of the update manifest.
+
+Builds and settings are stored in `src/` in Dev Mode, as with Wine, so both share the same data.
 
 ### Forcing Dev Mode OFF when using dev branch
 
